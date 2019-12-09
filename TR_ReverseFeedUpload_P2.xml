@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdeptiaPE xmlns:version = "4.7" xmlns:j = "jelly:core" xmlns:abpm = "jelly:com.adeptia.indigo.jelly.IndigoTagLibrary" xmlns:pd = "jelly:com.adeptia.indigo.pd.ProcessDesignerTagLibrary" xmlns = "jelly:com.werken.blissed.jelly.BlissedTagLibrary" >
+	<process name = "mainProcess" var = "mainProcess" start = "startState">
+		<state name = "startState">
+			<activity>
+				<abpm:indigoGlobalVariables>
+					<abpm:params>
+						<abpm:param name = "varRFJSON" track = "false">
+							<![CDATA[]]>
+						</abpm:param>
+					</abpm:params>
+				</abpm:indigoGlobalVariables>
+				<abpm:indigoGeneralVariables>
+					<abpm:params>
+						<abpm:param name = "sourceXPath" activityName = "PutContextVarTag1" activityLabel = "PutContextVarTag1" activityType = "Action" track = "false">
+						</abpm:param>
+					</abpm:params>
+				</abpm:indigoGeneralVariables>
+				<abpm:indigoActivityVariables>
+					<abpm:params>
+					</abpm:params>
+				</abpm:indigoActivityVariables>
+				<abpm:installGlobalExceptionHandlers>
+					<abpm:exceptionHandlers>
+					</abpm:exceptionHandlers>
+				</abpm:installGlobalExceptionHandlers>
+			</activity>
+		</state>
+		<state name = "state-BPMN:POOL:BPMN_POOL-1384730004">
+			<activity>
+				<pd:pool type = "pool" id = "010025095102157586653195000001"/>
+				<pd:graphics x = "0.0" y = "0.0" width = "1638.0" height = "183.0" owner = "FlowObject" textLabel = "Pool" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:LANE:BPMN_LANE-1384730005">
+			<activity>
+				<pd:lane type = "lane" id = "010025095102157586653196900002"/>
+				<pd:graphics x = "25.0" y = "0.0" width = "1613.0" height = "183.0" owner = "FlowObject" textLabel = "Lane" associatedPool = "010025095102157586653195000001" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:START_EVENT-1384730006">
+			<activity>
+				<pd:event type = "start" subType = "none" />
+				<pd:graphics x = "30.0" y = "103.0" width = "30.0" height = "30.0" owner = "FlowObject" textLabel = "Start Event" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "0,204,15" printSequence = "1"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:EVENT:START_EVENT-1384730006" destination = "state-BPMN:TASK:BASIC_TASK-1384730008" xpoints = "70,113" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "115,123,115,115|114,118,122,114" order = "0" startPoint = "60,118" endPoint = "123,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730008">
+			<activity>
+				<abpm:put-context-var name="PutContextVarTag1" key="filePath,fileName,sourceXPath" value=".\Solutions\Alibaba\APWSReverseFeedTest.xlsDB/APILog" activityName="Dummy_FileTarget,Dummy_FileTarget, " length="24,19,9"/>
+				<pd:graphics x = "123.0" y = "103.0" width = "75.0" height = "40.0" owner = "FlowObject" textLabel = "PutContextVarTag1" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "2"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730008" destination = "state-BPMN:TASK:BASIC_TASK-1384730009" xpoints = "208,223" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "225,233,225,225|114,118,122,114" order = "0" startPoint = "198,118" endPoint = "233,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730009">
+			<activity>
+				<abpm:activity type="AdvancedDatabaseSource" id="192168005218155303097012700037" name="TR_GetRFJSON_ADS" async="false"  >
+					<abpm:params>
+						<abpm:param name="eventContextEnabled">false</abpm:param>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "233.0" y = "104.0" width = "75.0" height = "40.0" streamNames = "name=TR_GetRFJSON_ADS,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-1442600652#"  owner = "FlowObject" textLabel = "TR_GetRFJSON_ADS_Phase2" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "3"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730009" destination = "state-BPMN:TASK:BASIC_TASK-1442600652" xpoints = "318,331" ypoints = "124,124" hasManualPlacement = "false" arcData = "" arrowPoints = "333,341,333,333|120,124,128,120" order = "0" startPoint = "308,124" endPoint = "341,124" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730010">
+			<activity>
+				<abpm:activity type="Stream2XmlStreamTransformer" id="" name="Alibaba_RF_JSON_Schema_P2" async="false"  >
+					<abpm:params>
+						<abpm:param name="errorRecordHandleType">Abort</abpm:param>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">UTF-8</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="schemaTypedId">JSONSchema:192168005218155504126918200061</abpm:param>
+						<abpm:param name="source">ContextSource</abpm:param>
+						<abpm:param name="dataAction">No Action</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "757.0" y = "98.0" width = "75.0" height = "40.0" streamNames = "name=Alibaba_RF_JSON_Schema_P2,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-1384730014#"  owner = "FlowObject" attachedEvents = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1672399641" textLabel = "Alibaba_RF_JSON_Schema" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "4"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730010" destination = "state-BPMN:TASK:BASIC_TASK-1384730014" xpoints = "842,876" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "878,886,878,878|114,118,122,114" order = "0" startPoint = "832,118" endPoint = "886,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730014">
+			<activity>
+				<abpm:activity type="DataMapping" id="192168005218155504129946900064" name="TR_RFWSCall_DM_P2" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">ISO-8859-1</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="Consume Stream">true</abpm:param>
+						<abpm:param name="transformerType">Saxon</abpm:param>
+						<abpm:param name="source">Alibaba_RF_JSON_Schema_P2</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "886.0" y = "98.0" width = "75.0" height = "40.0" streamNames = "name=TR_RFWSCall_DM_P2,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-1384730016#"  owner = "FlowObject" attachedEvents = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818367" textLabel = "TR_RFWSCall_DM" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "5"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730014" destination = "state-BPMN:TASK:BASIC_TASK-1384730016" xpoints = "971,989" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "991,999,991,991|114,118,122,114" order = "0" startPoint = "961,118" endPoint = "999,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730016">
+			<activity>
+				<abpm:activity type="WsMessageCall" id="192168005218151718060012300151" name="Alibaba_APWS_WSCall_Tracker" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">UTF-8</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="Consume Stream">true</abpm:param>
+						<abpm:param name="source">TR_RFWSCall_DM_P2</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "999.0" y = "98.0" width = "75.0" height = "40.0" streamNames = "name=Alibaba_APWS_WSCall_Tracker,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-1384730018#"  owner = "FlowObject" attachedEvents = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818364" textLabel = "Alibaba_APWS_WSCall_Tracker" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "6"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730016" destination = "state-BPMN:TASK:BASIC_TASK-1384730018" xpoints = "1084,1098" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "1100,1108,1100,1100|114,118,122,114" order = "0" startPoint = "1074,118" endPoint = "1108,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730018">
+			<activity>
+				<abpm:activity type="DataMapping" id="192168005218151570510534800042" name="NuStar_DM_WSResp_UploadPayments" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">UTF-8</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="Consume Stream">true</abpm:param>
+						<abpm:param name="transformerType">Saxon</abpm:param>
+						<abpm:param name="source">Alibaba_APWS_WSCall_Tracker</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "1108.0" y = "98.0" width = "75.0" height = "40.0" streamNames = "name=NuStar_DM_WSResp_UploadPayments,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-1384730020#"  owner = "FlowObject" attachedEvents = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818370" textLabel = "NuStar_DM_WSResp_UploadPayments" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "7"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730018" destination = "state-BPMN:TASK:BASIC_TASK-1384730020" xpoints = "1193,1217" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "1219,1227,1219,1219|114,118,122,114" order = "0" startPoint = "1183,118" endPoint = "1227,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730020">
+			<activity>
+				<abpm:activity type="XmlStream2StreamTransformer" id="" name="APMaster_Schema_Excel_Results_RF" async="false"  >
+					<abpm:params>
+						<abpm:param name="source">NuStar_DM_WSResp_UploadPayments</abpm:param>
+						<abpm:param name="schemaTypedId">ExcelSchema:192168005220147951909782100224</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="dataAction">No Action</abpm:param>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="errorRecordHandleType">File</abpm:param>
+						<abpm:param name="characterSetEncoding">UTF-8</abpm:param>
+						<abpm:param name="fileType">.xls</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "1227.0" y = "98.0" width = "75.0" height = "40.0" streamNames = "name=APMaster_Schema_Excel_Results_RF,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-1384730021#"  owner = "FlowObject" textLabel = "APMaster_Schema_Excel_Results_RF" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "8"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730020" destination = "state-BPMN:TASK:BASIC_TASK-1384730021" xpoints = "1312,1336" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "1338,1346,1338,1338|114,118,122,114" order = "0" startPoint = "1302,118" endPoint = "1346,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730021">
+			<activity>
+				<abpm:activity type="FileTarget" id="192168005220140019630072900149" name="Dummy_FileTarget" async="false"  >
+					<abpm:params>
+						<abpm:param name="append">false</abpm:param>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="source">APMaster_Schema_Excel_Results_RF</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "1346.0" y = "98.0" width = "75.0" height = "40.0" owner = "FlowObject" textLabel = "Dummy_FileTarget" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "9"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730021" destination = "state-BPMN:TASK:BASIC_TASK-1442600652" xpoints = "1383,1383,1383,378,378,378" ypoints = "88,68,68,68,68,94" hasManualPlacement = "false" arcData = "1380,62,6,6,270,90|378,65,6,6,180,-90" arrowPoints = "370,378,370,370|100,104,108,100" order = "0" startPoint = "1383,98" endPoint = "378,104" direction = "1,5" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730035">
+			<activity>
+				<abpm:activity type="ContextSource" id="" name="ContextSource" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="eventContextEnabled">false</abpm:param>
+						<abpm:param name="parameterName">varRFJSON</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="documentRepository">false</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="format">PLAIN_TYPE</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "647.0" y = "98.0" width = "75.0" height = "40.0" streamNames = "name=ContextSource,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-1384730010#"  owner = "FlowObject" textLabel = "ContextSource" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "10"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730035" destination = "state-BPMN:TASK:BASIC_TASK-1384730010" xpoints = "732,747" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "749,757,749,749|114,118,122,114" order = "0" startPoint = "722,118" endPoint = "757,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1384730037">
+			<activity>
+				<abpm:activity type="DataMapping" id="192168005218151977759341000083" name="TR_DBToJSON_DM" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">UTF-8</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="streamNames">null</abpm:param>
+						<abpm:param name="Consume Stream">true</abpm:param>
+						<abpm:param name="transformerType">Saxon</abpm:param>
+						<abpm:param name="source">TR_CP_DataSplitter_Generic[default]</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "544.0" y = "100.0" width = "75.0" height = "40.0" owner = "FlowObject" attachedEvents = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818373" textLabel = "TR_DBToJSON_DM" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "11"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1384730037" destination = "state-BPMN:TASK:BASIC_TASK-1384730035" xpoints = "629,633,633,633,633,637" ypoints = "124,124,124,118,118,118" hasManualPlacement = "false" arcData = "633,121,6,6,180,-90|630,112,6,6,270,90" arrowPoints = "639,647,639,639|114,118,122,114" order = "0" startPoint = "619,124" endPoint = "647,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-1442600652">
+			<activity>
+				<abpm:activity type="CustomPlugin" id="192168001130151815768836300011" name="TR_CP_DataSplitter_Generic" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="streamNames">default</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="Consume Stream">true</abpm:param>
+						<abpm:param name="source">TR_GetRFJSON_ADS</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "341.0" y = "105.0" width = "75.0" height = "40.0" streamNames = "name=default,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-1384730037#"  owner = "FlowObject" textLabel = "TR_CP_DataSplitte" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "172,227,236" printSequence = "12"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-1442600652" destination = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-1442600653" xpoints = "426,453" ypoints = "124,124" hasManualPlacement = "false" arcData = "" arrowPoints = "455,463,455,455|120,124,128,120" order = "0" startPoint = "416,124" endPoint = "463,124" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-1442600653">
+			<activity>
+				<pd:gateway type = "XOR_DATA_GATEWAY" />
+				<pd:graphics x = "463.0" y = "104.0" width = "40.0" height = "40.0" owner = "FlowObject" textLabel = "Is more invoice to process?" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "255,153,0" printSequence = "13"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-1442600653" destination = "state-BPMN:TASK:BASIC_TASK-1384730037" xpoints = "513,534" ypoints = "124,124" hasManualPlacement = "false" arcData = "" arrowPoints = "536,544,536,536|120,124,128,120" order = "0" startPoint = "503,124" endPoint = "544,124" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "Yes" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:graphics linkType = "DEFAULT_FLOW" source = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-1442600653" destination = "state-BPMN:EVENT:END_EVENT-1442600657" xpoints = "483,483,483,576" ypoints = "154,232,232,232" hasManualPlacement = "false" arcData = "478,222,10,10,270,90" arrowPoints = "578,586,578,578|228,232,236,228" order = "1" startPoint = "483,144" endPoint = "586,232" direction = "3,6" linkColor = "0,0,0" owner = "Transition" textLabel = "No" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:END_EVENT-1442600657">
+			<activity>
+				<pd:event type = "end" subType = "none" />
+				<pd:graphics x = "586.0" y = "217.0" width = "30.0" height = "30.0" owner = "FlowObject" textLabel = "End Event" color = "251,103,87" printSequence = "14"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818364">
+			<activity>
+				<pd:event type = "intermediate" subType = "ERROR" />
+				<pd:graphics x = "1011.0" y = "132.0" width = "20.0" height = "20.0" owner = "FlowObject" attachedTaskID = "state-BPMN:TASK:BASIC_TASK-1384730016" textLabel = "" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "196,196,0" printSequence = "16"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818364" destination = "state-BPMN:TASK:BASIC_TASK-1442600652" xpoints = "1021,1021,1021,365,365,365" ypoints = "162,182,182,182,182,155" hasManualPlacement = "false" arcData = "1018,175,7,7,270,90|365,179,7,7,180,-90" arrowPoints = "357,365,357,357|141,145,149,141" order = "0" startPoint = "1021,152" endPoint = "365,145" direction = "3,7" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818367">
+			<activity>
+				<pd:event type = "intermediate" subType = "ERROR" />
+				<pd:graphics x = "898.0" y = "132.0" width = "20.0" height = "20.0" owner = "FlowObject" attachedTaskID = "state-BPMN:TASK:BASIC_TASK-1384730014" textLabel = "" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "196,196,0" printSequence = "17"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818367" destination = "state-BPMN:TASK:BASIC_TASK-1442600652" xpoints = "908,908,908,377,377,377" ypoints = "162,182,182,182,182,155" hasManualPlacement = "false" arcData = "905,175,7,7,270,90|377,179,7,7,180,-90" arrowPoints = "369,377,369,369|141,145,149,141" order = "0" startPoint = "908,152" endPoint = "377,145" direction = "3,7" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818370">
+			<activity>
+				<pd:event type = "intermediate" subType = "ERROR" />
+				<pd:graphics x = "1120.0" y = "132.0" width = "20.0" height = "20.0" owner = "FlowObject" attachedTaskID = "state-BPMN:TASK:BASIC_TASK-1384730018" textLabel = "" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "196,196,0" printSequence = "18"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818370" destination = "state-BPMN:TASK:BASIC_TASK-1442600652" xpoints = "1130,1130,1130,389,389,389" ypoints = "162,182,182,182,182,155" hasManualPlacement = "false" arcData = "1127,175,7,7,270,90|389,179,7,7,180,-90" arrowPoints = "381,389,381,381|141,145,149,141" order = "0" startPoint = "1130,152" endPoint = "389,145" direction = "3,7" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818373">
+			<activity>
+				<pd:event type = "intermediate" subType = "ERROR" />
+				<pd:graphics x = "556.0" y = "134.0" width = "20.0" height = "20.0" owner = "FlowObject" attachedTaskID = "state-BPMN:TASK:BASIC_TASK-1384730037" textLabel = "" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "196,196,0" printSequence = "19"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818373" destination = "state-BPMN:TASK:BASIC_TASK-1442600652" xpoints = "566,566,566,401,401,401" ypoints = "164,184,184,184,184,155" hasManualPlacement = "false" arcData = "562,175,9,9,270,90|401,180,9,9,180,-90" arrowPoints = "393,401,393,393|141,145,149,141" order = "0" startPoint = "566,154" endPoint = "401,145" direction = "3,7" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1672399641">
+			<activity>
+				<pd:event type = "intermediate" subType = "ERROR" />
+				<pd:graphics x = "769.0" y = "132.0" width = "20.0" height = "20.0" owner = "FlowObject" attachedTaskID = "state-BPMN:TASK:BASIC_TASK-1384730010" textLabel = "" associatedLane = "010025095102157586653196900002" associatedPool = "010025095102157586653195000001" color = "196,196,0" printSequence = "15"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1672399641" destination = "state-BPMN:TASK:BASIC_TASK-1442600652" xpoints = "779,779,779,353,353,353" ypoints = "162,182,182,182,182,155" hasManualPlacement = "false" arcData = "776,175,7,7,270,90|353,179,7,7,180,-90" arrowPoints = "345,353,345,345|141,145,149,141" order = "0" startPoint = "779,152" endPoint = "353,145" direction = "3,7" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<transition from="startState" to="state-BPMN:EVENT:START_EVENT-1384730006"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1442600652" to="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-1442600653"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730037" to="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818373" >
+			<guard>
+				<abpm:exception-guard activityName = "TR_DBToJSON_DM"/>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730037" to="state-BPMN:TASK:BASIC_TASK-1384730035"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730035" to="state-BPMN:TASK:BASIC_TASK-1384730010"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730021" to="state-BPMN:TASK:BASIC_TASK-1442600652"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730020" to="state-BPMN:TASK:BASIC_TASK-1384730021"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730018" to="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818370" >
+			<guard>
+				<abpm:exception-guard activityName = "NuStar_DM_WSResp_UploadPayments"/>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730018" to="state-BPMN:TASK:BASIC_TASK-1384730020"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730016" to="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818364" >
+			<guard>
+				<abpm:exception-guard activityName = "Alibaba_APWS_WSCall_Tracker"/>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730016" to="state-BPMN:TASK:BASIC_TASK-1384730018"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730014" to="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818367" >
+			<guard>
+				<abpm:exception-guard activityName = "TR_RFWSCall_DM_P2"/>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730014" to="state-BPMN:TASK:BASIC_TASK-1384730016"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730010" to="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1672399641" >
+			<guard>
+				<abpm:exception-guard activityName = "Alibaba_RF_JSON_Schema_P2"/>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730010" to="state-BPMN:TASK:BASIC_TASK-1384730014"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730009" to="state-BPMN:TASK:BASIC_TASK-1442600652"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-1384730008" to="state-BPMN:TASK:BASIC_TASK-1384730009"/>
+		<transition from="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-1442600653" to="state-BPMN:TASK:BASIC_TASK-1384730037" >
+			<guard>
+				<abpm:scripted-guard >
+					<![CDATA[
+						Boolean processRecord = (Boolean)context.get("processRecord");
+if(processRecord == null)
+return false;
+else
+return processRecord;
+					]]>
+				</abpm:scripted-guard>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-1442600653" to="state-BPMN:EVENT:END_EVENT-1442600657" >
+			<guard>
+				<abpm:scripted-guard >
+					<![CDATA[
+						return true ;
+					]]>
+				</abpm:scripted-guard>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:EVENT:START_EVENT-1384730006" to="state-BPMN:TASK:BASIC_TASK-1384730008"/>
+		<transition from="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1672399641" to="state-BPMN:TASK:BASIC_TASK-1442600652"/>
+		<transition from="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818373" to="state-BPMN:TASK:BASIC_TASK-1442600652"/>
+		<transition from="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818370" to="state-BPMN:TASK:BASIC_TASK-1442600652"/>
+		<transition from="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818367" to="state-BPMN:TASK:BASIC_TASK-1442600652"/>
+		<transition from="state-BPMN:EVENT:ERROR_INTERMEDIATE_EVENT-1504818364" to="state-BPMN:TASK:BASIC_TASK-1442600652"/>
+	</process>
+</AdeptiaPE>

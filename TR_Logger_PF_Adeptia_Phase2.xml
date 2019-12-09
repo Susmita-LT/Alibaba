@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdeptiaPE xmlns:version = "4.7" xmlns:j = "jelly:core" xmlns:abpm = "jelly:com.adeptia.indigo.jelly.IndigoTagLibrary" xmlns:pd = "jelly:com.adeptia.indigo.pd.ProcessDesignerTagLibrary" xmlns = "jelly:com.werken.blissed.jelly.BlissedTagLibrary" >
+	<process name = "mainProcess" var = "mainProcess" start = "startState">
+		<state name = "startState">
+			<activity>
+				<abpm:indigoGlobalVariables>
+					<abpm:params>
+						<abpm:param name = "IsValidationErrorNotificationRequired" track = "false">
+							<![CDATA[false]]>
+						</abpm:param>
+					</abpm:params>
+				</abpm:indigoGlobalVariables>
+				<abpm:indigoGeneralVariables>
+					<abpm:params>
+					</abpm:params>
+				</abpm:indigoGeneralVariables>
+				<abpm:indigoActivityVariables>
+					<abpm:params>
+						<abpm:param name = "ErrorMessage" activityName = "TR_ErrorDescription_CU" activityLabel = "TR_ErrorDescription_CU" activityType = "ContextUpload" track = "false">
+						</abpm:param>
+					</abpm:params>
+				</abpm:indigoActivityVariables>
+				<abpm:installGlobalExceptionHandlers>
+					<abpm:exceptionHandlers>
+					</abpm:exceptionHandlers>
+				</abpm:installGlobalExceptionHandlers>
+			</activity>
+		</state>
+		<state name = "state-BPMN:POOL:BPMN_POOL-921061118">
+			<activity>
+				<pd:pool type = "pool" id = "010025095102157586578055700001"/>
+				<pd:graphics x = "0.0" y = "0.0" width = "1084.0" height = "183.0" owner = "FlowObject" textLabel = "Pool" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:LANE:BPMN_LANE-921061119">
+			<activity>
+				<pd:lane type = "lane" id = "010025095102157586578060400002"/>
+				<pd:graphics x = "25.0" y = "0.0" width = "1059.0" height = "183.0" owner = "FlowObject" textLabel = "Lane" associatedPool = "010025095102157586578055700001" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:START_EVENT-921061120">
+			<activity>
+				<pd:event type = "start" subType = "none" />
+				<pd:graphics x = "30.0" y = "103.0" width = "30.0" height = "30.0" owner = "FlowObject" textLabel = "Start Event" associatedLane = "010025095102157586578060400002" associatedPool = "010025095102157586578055700001" color = "0,204,15" printSequence = "1"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:EVENT:START_EVENT-921061120" destination = "state-BPMN:TASK:BASIC_TASK-921061126" xpoints = "70,84" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "86,94,86,86|114,118,122,114" order = "0" startPoint = "60,118" endPoint = "94,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:END_EVENT-921061121">
+			<activity>
+				<pd:event type = "end" subType = "none" />
+				<pd:graphics x = "1092.0" y = "103.0" width = "30.0" height = "30.0" owner = "FlowObject" textLabel = "End Event" color = "251,103,87" printSequence = "2"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-921061126">
+			<activity>
+				<abpm:activity type="AdvancedDatabaseSource" id="192168001120147003470728400030" name="TR_ErrorDescription_ADS" async="false"  >
+					<abpm:params>
+						<abpm:param name="ID">192168001120147003470728400030</abpm:param>
+						<abpm:param name="eventContextEnabled">false</abpm:param>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "94.0" y = "103.0" width = "75.0" height = "40.0" streamNames = "name=TR_ErrorDescription_ADS,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-921061127#"  owner = "FlowObject" textLabel = "TR_ErrorDescription_ADS" associatedLane = "010025095102157586578060400002" associatedPool = "010025095102157586578055700001" color = "172,227,236" printSequence = "3"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-921061126" destination = "state-BPMN:TASK:BASIC_TASK-921061127" xpoints = "179,215" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "217,225,217,217|114,118,122,114" order = "0" startPoint = "169,118" endPoint = "225,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-921061127">
+			<activity>
+				<abpm:activity type="ContextUpload" id="192168001120147003494139400034" name="TR_ErrorDescription_CU" async="false"  >
+					<abpm:params>
+						<abpm:param name="ID">192168001120147003494139400034</abpm:param>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="dataType">String</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="source">TR_ErrorDescription_ADS</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "225.0" y = "101.0" width = "75.0" height = "40.0" owner = "FlowObject" textLabel = "TR_ErrorDescription_CU" associatedLane = "010025095102157586578060400002" associatedPool = "010025095102157586578055700001" color = "172,227,236" printSequence = "4"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-921061127" destination = "state-BPMN:TASK:BASIC_TASK-921061128" xpoints = "310,348" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "350,358,350,350|114,118,122,114" order = "0" startPoint = "300,118" endPoint = "358,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-921061128">
+			<activity>
+				<abpm:activity type="DataMapping" id="192168005218154832172037400006" name="TR_Log_DM_Adeptia_Phase2" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">UTF-8</abpm:param>
+						<abpm:param name="restartTriesCount">-1</abpm:param>
+						<abpm:param name="Consume Stream">false</abpm:param>
+						<abpm:param name="transformerType">Saxon</abpm:param>
+						<abpm:param name="source">null</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "358.0" y = "101.0" width = "75.0" height = "40.0" streamNames = "name=TR_Log_DM_Adeptia_Phase2,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-921061130#"  owner = "FlowObject" textLabel = "TR_Log_DM_Adeptia_Phase2" associatedLane = "010025095102157586578060400002" associatedPool = "010025095102157586578055700001" color = "172,227,236" printSequence = "5"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-921061128" destination = "state-BPMN:TASK:BASIC_TASK-921061130" xpoints = "443,490" ypoints = "118,118" hasManualPlacement = "false" arcData = "" arrowPoints = "492,500,492,492|114,118,122,114" order = "0" startPoint = "433,118" endPoint = "500,118" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-921061130">
+			<activity>
+				<abpm:activity type="AdvancedDatabaseTarget" id="192168001120147003763457400059" name="TR_Log_ADT" async="false"  >
+					<abpm:params>
+						<abpm:param name="ID">192168001120147003763457400059</abpm:param>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="errorRecordHandleType">File</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="streamNames">null</abpm:param>
+						<abpm:param name="source">TR_Log_DM_Adeptia_Phase2</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "500.0" y = "102.0" width = "75.0" height = "40.0" owner = "FlowObject" textLabel = "TR_Log_ADT" associatedLane = "010025095102157586578060400002" associatedPool = "010025095102157586578055700001" color = "172,227,236" printSequence = "6"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-921061130" destination = "state-BPMN:EVENT:END_EVENT-921061121" xpoints = "585,1082" ypoints = "122,122" hasManualPlacement = "false" arcData = "" arrowPoints = "1084,1092,1084,1084|118,122,126,118" order = "0" startPoint = "575,122" endPoint = "1092,122" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<transition from="startState" to="state-BPMN:EVENT:START_EVENT-921061120"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-921061130" to="state-BPMN:EVENT:END_EVENT-921061121"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-921061128" to="state-BPMN:TASK:BASIC_TASK-921061130"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-921061127" to="state-BPMN:TASK:BASIC_TASK-921061128"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-921061126" to="state-BPMN:TASK:BASIC_TASK-921061127"/>
+		<transition from="state-BPMN:EVENT:START_EVENT-921061120" to="state-BPMN:TASK:BASIC_TASK-921061126"/>
+	</process>
+</AdeptiaPE>
